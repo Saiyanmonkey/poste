@@ -1,10 +1,12 @@
 import React from "react";
 import './header.css';
 
-export default function TodoHeader({add, changeAdd, setTodos}) {
+export default function TodoHeader({add, changeAdd, setTodos, setDisabledIndices, setCheckedIndices,}) {
     
     function clearTodos() {
         setTodos([]);
+        setDisabledIndices([]);
+        setCheckedIndices([]);
     }
     return (
         <div  className="header-style">

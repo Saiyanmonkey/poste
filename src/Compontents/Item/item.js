@@ -4,22 +4,26 @@ import { ReactComponent as Delete } from './MinusCircle.svg';
 import { ReactComponent as Check } from './CheckCircle.svg';
 import { ReactComponent as Green } from './Vector.svg';
 
-export default function Item({index, todo, todos, setTodos}) {
-    const [checked, setChecked] = React.useState(false);
+export default function Item({index, todo, todos, setTodos, disabled, isDisabled, isChecked, disabledIndices, checkedIndices, setDisabledIndices, setCheckedIndices }) {
 
     function deleteItem() {
         setTodos(todos.filter((_,todoindex) => todoindex !== index));
+        setDisabledIndices(disabledIndices.map(index => index - 1));
+        setCheckedIndices(checkedIndices.map(index => index - 1));
     }
 
     function checkItem() {
-        setChecked(!checked);
+        if (!isChecked) {
+            disabled(index);
+        }
     }
+
     return (
-        <div className={`d-flex justify-content-between align-items-center ${checked ? 'disabled' : ''}`} >
+        <div className={`d-flex justify-content-between align-items-center item-style ${isDisabled ? 'disabled' : ''}`} >
             <div onClick={checkItem}>   
-                {checked ? <Green/> : <Check/>}
+                {isChecked ? <Green/> : <Check/>}
             </div>
-            <li className="list-group-item text-start">{todo}</li>
+            <li className="list-group-item ">{todo}</li>
             <button className="btn" onClick={deleteItem}>
                 <Delete/>
             </button>

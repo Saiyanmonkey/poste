@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './textbox.css';
 
-export default function TextBox({add, changeAdd, todos, setTodos}) {
+export default function TextBox({add, changeAdd, todos, setTodos,disabledIndices,checkedIndices, setDisabledIndices, setCheckedIndices}) {
     const [inputValue, setInput] = useState('');
     const [error, setError] = useState('');
 
@@ -14,10 +14,15 @@ export default function TextBox({add, changeAdd, todos, setTodos}) {
             setError('Title cannot be empty');
             return;
         }
-        setTodos([...todos, inputValue]);
+        const newTodos = [...todos];
+        const insertAt = newTodos.length - disabledIndices.length;
+        newTodos.splice(insertAt, 0, inputValue);
+        setTodos(newTodos);
         setInput('');
         changeAdd();
         setError('');
+        setDisabledIndices(disabledIndices.map(index => index + 1));
+        setCheckedIndices(checkedIndices.map(index => index + 1));
     }
 
     function handleInputChange(e) {
