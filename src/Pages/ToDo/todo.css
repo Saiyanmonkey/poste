@@ -1,3 +1,7 @@
 .container-style {
     width: 800px;
 }
+
+.relative {
+    position: relative;
+}

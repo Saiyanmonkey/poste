@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, {useState} from 'react';
 import {Route, Routes} from 'react-router-dom';
@@ -6,6 +5,8 @@ import Todo from './Pages/ToDo/todo';
 
 function App() {
   const [todos, setTodos] = useState([]);
+
+  
 
   return (
     <div className="App">
