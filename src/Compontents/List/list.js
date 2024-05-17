@@ -1,4 +1,5 @@
 import React from "react";
+import './list.css';
 
 export default function TodoList({todos, setTodos}) {
 
@@ -15,7 +16,7 @@ export default function TodoList({todos, setTodos}) {
         boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
     };
     return (
-        <div style={listBoxStyle}> 
+        <div className="box-style"> 
             {todos.length === 0 ? (
                 <p> No todos to show </p>
             ) : (

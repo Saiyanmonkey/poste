@@ -1,0 +1,35 @@
+
+.header-style {
+    width: 800px;
+    height: 40px;
+    position: absolute;
+    top: 76px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 16px,
+}
+
+
+.text-style {
+    width: 606px;
+    height: 28px;
+    gap: 0px;
+}
+
+.add-style {
+    padding: 8px 16px;
+    gap: 10px;
+    border-radius: 8px;
+    background: #075985;
+    color: #F0F9FF;
+    border: none;
+    margin-right: 10px;
+}
+
+.clear-style {
+    padding: 8px 16px;
+    gap: 10px;
+    border-radius: 8px;
+    color: #BE123C;
+    border: none;
+}
