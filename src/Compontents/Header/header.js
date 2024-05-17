@@ -8,6 +8,7 @@ export default function TodoHeader() {
         top: '76px',
         left: '50%',
         transform: 'translateX(-50%)',
+        
         gap: '16px',
     };
 
